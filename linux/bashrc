@@ -1,1 +1,0 @@
-# Bash configuration for Linux development aliases
