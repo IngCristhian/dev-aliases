@@ -23,13 +23,15 @@ Configuración de alias personalizados para PowerShell en Windows, optimizada pa
    ```
 
 3. **Copia el contenido del archivo `profile.ps1` al final de tu perfil:**
+   
    Abre el archivo con este comando:
+
    ```powershell
    notepad $PROFILE
    ```
    Luego copia y pega todo el contenido de `profile.ps1` guardalo y cierra el archivo.
 
-4. **Reinicia PowerShell o recarga el perfil:**
+5. **Reinicia PowerShell o recarga el perfil:**
    ```powershell
    . $PROFILE
    ```
