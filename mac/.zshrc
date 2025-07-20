@@ -1,1 +1,0 @@
-# Zsh configuration for macOS development aliases

@@ -1,51 +1,65 @@
 🛠️ Dev Aliases Cross-Platform
 
-Este repositorio contiene mis configuraciones de alias personalizados para Git y desarrollo en diferentes entornos:
+Este repositorio contiene configuraciones de alias personalizados para Git y K8S (Kubernetes), optimizadas para diferentes entornos y sistemas operativos. Cada plataforma tiene sus propios alias adaptados a las convenciones y herramientas específicas del sistema.
 
-- 💻 PowerShell (Windows)
-- 🍎 macOS (Zsh)
-- 🐧 Linux (Bash)
-- 🧰 Git Bash
+## 🎯 Propósito
 
-## 📁 Estructura
+Proporcionar un conjunto consistente y eficiente de alias de desarrollo que:
+- Aceleren el flujo de trabajo con Git y herramientas de desarrollo como K8s
+- Mantengan consistencia entre diferentes sistemas operativos
+- Sean fáciles de instalar y personalizar
+- Incluyan documentación específica para cada plataforma
 
-- [`powershell/profile.ps1`](powershell/profile.ps1): Alias para PowerShell
-- [`mac/.zshrc`](mac/.zshrc): Alias para macOS con Oh My Zsh
-- [`gitbash/.bashrc`](gitbash/.bashrc): Alias para Git Bash
-- [`linux/.bashrc`](linux/.bashrc): Alias para Linux
-- [`docs/cheatsheet.md`](docs/cheatsheet.md): Documentación de todos los alias
-
-## 📌 Alias destacados
-
-### Git
-```bash
-gst   → git status
-gpl   → git pull
-gcom  → git commit -m
+## 📁 Estructura del Repositorio
+git config --global --list
+```
+dev-aliases/
+├── 💻 powershell/     # Configuración para Windows PowerShell
+├── 🍎 mac/           # Configuración para macOS (Zsh)
+├── 🐧 linux/         # Configuración para Linux (Bash)
+└── 🧰 gitbash/       # Configuración para Git Bash
 ```
 
-## 🚀 Instalación
+**Cada carpeta contiene:**
+- Archivo de configuración específico del sistema
+- README.md con instrucciones detalladas de instalación
+- Documentación de los alias disponibles
 
-### 💻 Windows (PowerShell)
+## 📌 Alias Principales Incluidos
 
-1. **Localiza tu perfil de PowerShell:**
-   ```powershell
-   $PROFILE
-   ```
+### Git Workflow
+- **gst** → `git status` - Estado del repositorio
+- **gpl** → `git pull` - Obtener cambios remotos
+- **gcom** → `git commit -m` - Commit con mensaje
 
-2. **Si el archivo no existe, créalo:**
-   ```powershell
-   New-Item -Path $PROFILE -Type File -Force
-   ```
+### Navegación y Utilidades
+- Alias para navegación rápida de directorios
+- Comandos de desarrollo comunes
+- Herramientas de productividad específicas por plataforma
 
-3. **Copia el contenido del archivo [`powershell/profile.ps1`](powershell/profile.ps1) al final de tu perfil:**
-   ```powershell
-   notepad $PROFILE
-   ```
+## 🚀 Instrucciones de Instalación
 
-4. **Reinicia PowerShell o recarga el perfil:**
-   ```powershell
-   . $PROFILE
-   ```
+**⚠️ Importante:** Cada sistema operativo tiene sus propias instrucciones de instalación. Por favor, navega a la carpeta correspondiente a tu sistema:
 
-5. **¡Listo!** Ahora puedes usar los alias como `gst`, `gpl`, `gcom`, etc.
+- **💻 Windows:** [`powershell/README.md`](powershell/README.md)
+- **🍎 macOS:** [`mac/README.md`](mac/README.md)  
+- **🐧 Linux:** [`linux/README.md`](linux/README.md)
+- **🧰 Git Bash:** [`gitbash/README.md`](gitbash/README.md)
+
+Cada guía incluye:
+- Pasos detallados de instalación
+- Configuración específica del sistema
+- Lista completa de alias disponibles
+- Troubleshooting común
+- Personalización avanzada
+
+## 🔧 Personalización
+
+Los archivos están diseñados para ser fácilmente personalizables. Puedes:
+- Modificar alias existentes
+- Agregar tus propios alias
+- Adaptar la configuración a tu flujo de trabajo
+
+## 🤝 Contribución
+
+Si encuentras mejoras o tienes alias útiles para agregar, las contribuciones son bienvenidas. Asegúrate de mantener la consistencia entre plataformas cuando sea posible.

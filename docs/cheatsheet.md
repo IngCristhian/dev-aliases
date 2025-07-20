@@ -1,1 +1,0 @@
-# Development aliases cheatsheet
