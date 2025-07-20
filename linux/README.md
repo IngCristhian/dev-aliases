@@ -41,29 +41,53 @@ echo $SHELL
 
 ### Paso 2: Configurar Aliases
 
-#### Método 1: Agregar al .bashrc existente
+#### Agregar Aliases al .bashrc
 
 ```bash
 # Hacer backup del .bashrc actual
 cp ~/.bashrc ~/.bashrc.backup
 
-# Agregar los aliases al final del archivo
-cat dev-aliases/linux/.bashrc >> ~/.bashrc
-
-# Recargar configuración
-source ~/.bashrc
+# Abrir .bashrc para editar
+nano ~/.bashrc
+# o si prefieres otro editor:
+# vim ~/.bashrc
+# code ~/.bashrc  # si tienes VS Code instalado
 ```
 
-#### Método 2: Reemplazar .bashrc (Solo si no tienes configuración previa)
+Luego agrega exactamente este contenido al final del archivo:
 
 ```bash
-# Hacer backup
-cp ~/.bashrc ~/.bashrc.backup
+# ===== ALIAS FUNCIONALES PARA GIT =====
 
-# Copiar el archivo
-cp dev-aliases/linux/.bashrc ~/.bashrc
+alias gst='git status'
+alias gpl='git pull'
+alias gpu='git push'
+alias gaa='git add .'
+alias gcom='git commit -m'
+alias gch='git checkout'
+alias gb='git branch'
+alias gcl='git clone'
+alias gdf='git diff'
+alias gft='git fetch origin'
 
-# Recargar configuración
+# ===== ALIAS DE KUBECTL =====
+alias k='kubectl'
+alias kg='kubectl get'
+alias kgp='kubectl get pods'
+alias kgs='kubectl get svc'
+alias kgd='kubectl get deployments'
+alias kgn='kubectl get nodes'
+alias kgcm='kubectl get configmap'
+alias kgsec='kubectl get secret'
+alias kgall='kubectl get all'
+alias kctx='kubectl config current-context'
+alias kdp='kubectl describe pod'
+alias kl='kubectl logs'
+alias klf='kubectl logs -f'
+```
+
+Guarda el archivo y recarga la configuración:
+```bash
 source ~/.bashrc
 ```
 
@@ -82,57 +106,31 @@ gst
 |-------|------------------|-------------|
 | `gst` | `git status` | Estado del repositorio |
 | `gpl` | `git pull` | Obtener cambios remotos |
-| `gps` | `git push` | Enviar cambios al remoto |
-| `gco` | `git checkout` | Cambiar rama o restaurar archivos |
-| `gcb` | `git checkout -b` | Crear y cambiar a nueva rama |
+| `gpu` | `git push` | Enviar cambios al remoto |
+| `gaa` | `git add .` | Agregar todos los archivos |
 | `gcom` | `git commit -m` | Commit con mensaje |
-| `gcam` | `git commit -am` | Add y commit con mensaje |
-| `glog` | `git log --oneline --graph --all` | Log gráfico completo |
-| `gdiff` | `git diff` | Ver diferencias |
-| `gbr` | `git branch -v` | Listar ramas con detalles |
+| `gch` | `git checkout` | Cambiar rama o restaurar archivos |
+| `gb` | `git branch` | Listar/gestionar ramas |
+| `gcl` | `git clone` | Clonar repositorio |
+| `gdf` | `git diff` | Ver diferencias |
+| `gft` | `git fetch origin` | Obtener cambios sin merge |
 
 ### Kubernetes Shortcuts
 | Alias | Comando Original | Descripción |
 |-------|------------------|-------------|
 | `k` | `kubectl` | Comando base de kubectl |
+| `kg` | `kubectl get` | Obtener recursos |
 | `kgp` | `kubectl get pods` | Listar pods |
 | `kgs` | `kubectl get svc` | Listar servicios |
 | `kgd` | `kubectl get deployments` | Listar deployments |
 | `kgn` | `kubectl get nodes` | Listar nodos |
-| `kga` | `kubectl get all` | Listar todos los recursos |
-| `kdp` | `kubectl describe pod` | Describir pod |
-| `klog` | `kubectl logs -f` | Ver logs en tiempo real |
+| `kgcm` | `kubectl get configmap` | Listar configmaps |
+| `kgsec` | `kubectl get secret` | Listar secrets |
+| `kgall` | `kubectl get all` | Listar todos los recursos |
 | `kctx` | `kubectl config current-context` | Contexto actual |
-| `kns` | `kubectl get namespaces` | Listar namespaces |
-
-### Navegación y Utilidades Linux
-| Alias | Comando Original | Descripción |
-|-------|------------------|-------------|
-| `ll` | `ls -la --color=auto` | Listar archivos detallado con colores |
-| `la` | `ls -la --color=auto` | Listar todos los archivos |
-| `l` | `ls -l --color=auto` | Listar archivos formato largo |
-| `..` | `cd ..` | Subir un directorio |
-| `...` | `cd ../..` | Subir dos directorios |
-| `grep` | `grep --color=auto` | Grep con colores |
-| `fgrep` | `fgrep --color=auto` | Fixed grep con colores |
-| `egrep` | `egrep --color=auto` | Extended grep con colores |
-
-### Sistema y Proceso
-| Alias | Comando Original | Descripción |
-|-------|------------------|-------------|
-| `h` | `history` | Ver historial de comandos |
-| `j` | `jobs -l` | Ver trabajos activos |
-| `df` | `df -h` | Espacio en disco legible |
-| `du` | `du -h` | Uso de directorio legible |
-| `free` | `free -h` | Memoria disponible legible |
-| `ps` | `ps aux` | Procesos detallados |
-
-### Networking
-| Alias | Comando Original | Descripción |
-|-------|------------------|-------------|
-| `ports` | `netstat -tuln` | Puertos abiertos |
-| `myip` | `curl ifconfig.me` | IP pública |
-| `localip` | `hostname -I` | IP local |
+| `kdp` | `kubectl describe pod` | Describir pod |
+| `kl` | `kubectl logs` | Ver logs de pod |
+| `klf` | `kubectl logs -f` | Ver logs en tiempo real |
 
 ## 🔧 Personalización
 

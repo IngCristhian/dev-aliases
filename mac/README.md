@@ -27,29 +27,53 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 ### Paso 3: Configurar Aliases
 
-#### Método 1: Agregarlo al .zshrc
+#### Agregar Aliases al .zshrc
 
 ```bash
 # Hacer backup del .zshrc actual
 cp ~/.zshrc ~/.zshrc.backup
 
-# Agregar los aliases al final del archivo
-cat dev-aliases/mac/.zshrc >> ~/.zshrc
-
-# Recargar configuración
-source ~/.zshrc
+# Abrir .zshrc para editar
+nano ~/.zshrc
+# o si prefieres otro editor:
+# code ~/.zshrc
+# vim ~/.zshrc
 ```
 
-#### Método 2: Reemplazar .zshrc (Solo si no tienes configuración previa)
+Luego agrega exactamente este contenido al final del archivo:
 
 ```bash
-# Hacer backup
-cp ~/.zshrc ~/.zshrc.backup
+# ===== ALIAS FUNCIONALES PARA GIT =====
 
-# Copiar el archivo
-cp dev-aliases/mac/.zshrc ~/.zshrc
+alias gst='git status'
+alias gpl='git pull'
+alias gpu='git push'
+alias gaa='git add .'
+alias gcom='git commit -m'
+alias gch='git checkout'
+alias gb='git branch'
+alias gcl='git clone'
+alias gdf='git diff'
+alias gft='git fetch origin'
 
-# Recargar configuración
+# ===== ALIAS DE KUBECTL =====
+alias k='kubectl'
+alias kg='kubectl get'
+alias kgp='kubectl get pods'
+alias kgs='kubectl get svc'
+alias kgd='kubectl get deployments'
+alias kgn='kubectl get nodes'
+alias kgcm='kubectl get configmap'
+alias kgsec='kubectl get secret'
+alias kgall='kubectl get all'
+alias kctx='kubectl config current-context'
+alias kdp='kubectl describe pod'
+alias kl='kubectl logs'
+alias klf='kubectl logs -f'
+```
+
+Guarda el archivo y recarga la configuración:
+```bash
 source ~/.zshrc
 ```
 
@@ -60,44 +84,31 @@ source ~/.zshrc
 |-------|------------------|-------------|
 | `gst` | `git status` | Estado del repositorio |
 | `gpl` | `git pull` | Obtener cambios remotos |
-| `gps` | `git push` | Enviar cambios al remoto |
-| `gco` | `git checkout` | Cambiar rama o restaurar archivos |
-| `gcb` | `git checkout -b` | Crear y cambiar a nueva rama |
+| `gpu` | `git push` | Enviar cambios al remoto |
+| `gaa` | `git add .` | Agregar todos los archivos |
 | `gcom` | `git commit -m` | Commit con mensaje |
-| `gcam` | `git commit -am` | Add y commit con mensaje |
-| `glog` | `git log --oneline --graph` | Log gráfico resumido |
-| `gdiff` | `git diff` | Ver diferencias |
-| `gbr` | `git branch` | Listar ramas |
+| `gch` | `git checkout` | Cambiar rama o restaurar archivos |
+| `gb` | `git branch` | Listar/gestionar ramas |
+| `gcl` | `git clone` | Clonar repositorio |
+| `gdf` | `git diff` | Ver diferencias |
+| `gft` | `git fetch origin` | Obtener cambios sin merge |
 
 ### Kubernetes Shortcuts
 | Alias | Comando Original | Descripción |
 |-------|------------------|-------------|
 | `k` | `kubectl` | Comando base de kubectl |
+| `kg` | `kubectl get` | Obtener recursos |
 | `kgp` | `kubectl get pods` | Listar pods |
 | `kgs` | `kubectl get svc` | Listar servicios |
 | `kgd` | `kubectl get deployments` | Listar deployments |
 | `kgn` | `kubectl get nodes` | Listar nodos |
-| `kdp` | `kubectl describe pod` | Describir pod |
-| `klog` | `kubectl logs -f` | Ver logs en tiempo real |
+| `kgcm` | `kubectl get configmap` | Listar configmaps |
+| `kgsec` | `kubectl get secret` | Listar secrets |
+| `kgall` | `kubectl get all` | Listar todos los recursos |
 | `kctx` | `kubectl config current-context` | Contexto actual |
-
-### Navegación y Utilidades macOS
-| Alias | Comando Original | Descripción |
-|-------|------------------|-------------|
-| `ll` | `ls -la` | Listar archivos detallado |
-| `la` | `ls -la` | Listar todos los archivos |
-| `..` | `cd ..` | Subir un directorio |
-| `...` | `cd ../..` | Subir dos directorios |
-| `finder` | `open .` | Abrir directorio actual en Finder |
-| `code.` | `code .` | Abrir directorio en VS Code |
-
-### Homebrew Shortcuts
-| Alias | Comando Original | Descripción |
-|-------|------------------|-------------|
-| `br` | `brew` | Comando base de Homebrew |
-| `bri` | `brew install` | Instalar paquete |
-| `bru` | `brew update && brew upgrade` | Actualizar Homebrew y paquetes |
-| `brs` | `brew search` | Buscar paquete |
+| `kdp` | `kubectl describe pod` | Describir pod |
+| `kl` | `kubectl logs` | Ver logs de pod |
+| `klf` | `kubectl logs -f` | Ver logs en tiempo real |
 
 ## 🔧 Personalización
 

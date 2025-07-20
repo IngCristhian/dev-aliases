@@ -22,31 +22,51 @@ Configuración de alias personalizados para PowerShell en Windows, optimizada pa
    New-Item -Path $PROFILE -Type File -Force
    ```
 
-3. **Copia el contenido del archivo `profile.ps1` al final de tu perfil:**
+3. **Copia y pega el siguiente contenido al final de tu perfil:**
    
    Abre el archivo con este comando:
 
    ```powershell
    notepad $PROFILE
    ```
-   Luego copia y pega todo el contenido de `profile.ps1` guardalo y cierra el archivo.
+   
+   Luego copia y pega exactamente este contenido:
 
-5. **Reinicia PowerShell o recarga el perfil:**
+   ```powershell
+   # ===== ALIAS FUNCIONALES PARA GIT (con Function) =====
+   
+   Function gst  { git status }
+   Function gpl  { git pull }
+   Function gpu  { git push }
+   Function gaa  { git add . }
+   Function gcom { git commit -m @args }
+   Function gch  { git checkout @args }
+   Function gb   { git branch }
+   Function gcl  { git clone @args }
+   Function gdf  { git diff }
+   Function gft  { git fetch origin }
+   
+   # ===== ALIAS DE KUBECTL =====
+   Set-Alias k kubectl
+   Set-Alias kubectl kubectl
+   Set-Alias kg "kubectl get"
+   Set-Alias kgp "kubectl get pods"
+   Set-Alias kgs "kubectl get svc"
+   Set-Alias kgd "kubectl get deployments"
+   Set-Alias kgn "kubectl get nodes"
+   Set-Alias kgcm "kubectl get configmap"
+   Set-Alias kgsec "kubectl get secret"
+   Set-Alias kgall "kubectl get all"
+   Set-Alias kctx "kubectl config current-context"
+   Set-Alias kdp "kubectl describe pod"
+   Set-Alias kl "kubectl logs"
+   Set-Alias klf "kubectl logs -f"
+   ```
+
+4. **Guarda el archivo y reinicia PowerShell o recarga el perfil:**
    ```powershell
    . $PROFILE
    ```
-
-### Método 2: Importación Directa
-
-Alternativamente, puedes importar directamente desde el repositorio:
-
-```powershell
-# Navega al directorio del repositorio
-cd "ruta/al/repositorio/dev-aliases/powershell"
-
-# Importa los alias
-. .\profile.ps1
-```
 
 ## 📌 Alias Disponibles
 
@@ -55,31 +75,31 @@ cd "ruta/al/repositorio/dev-aliases/powershell"
 |-------|------------------|-------------|
 | `gst` | `git status` | Estado del repositorio |
 | `gpl` | `git pull` | Obtener cambios remotos |
-| `gps` | `git push` | Enviar cambios al remoto |
-| `gco` | `git checkout` | Cambiar rama o restaurar archivos |
-| `gcb` | `git checkout -b` | Crear y cambiar a nueva rama |
+| `gpu` | `git push` | Enviar cambios al remoto |
+| `gaa` | `git add .` | Agregar todos los archivos |
 | `gcom` | `git commit -m` | Commit con mensaje |
-| `gcam` | `git commit -am` | Add y commit con mensaje |
-| `glog` | `git log --oneline` | Log resumido |
-| `gdiff` | `git diff` | Ver diferencias |
+| `gch` | `git checkout` | Cambiar rama o restaurar archivos |
+| `gb` | `git branch` | Listar/gestionar ramas |
+| `gcl` | `git clone` | Clonar repositorio |
+| `gdf` | `git diff` | Ver diferencias |
+| `gft` | `git fetch origin` | Obtener cambios sin merge |
 
 ### Kubernetes Shortcuts
 | Alias | Comando Original | Descripción |
 |-------|------------------|-------------|
 | `k` | `kubectl` | Comando base de kubectl |
+| `kg` | `kubectl get` | Obtener recursos |
 | `kgp` | `kubectl get pods` | Listar pods |
 | `kgs` | `kubectl get svc` | Listar servicios |
 | `kgd` | `kubectl get deployments` | Listar deployments |
+| `kgn` | `kubectl get nodes` | Listar nodos |
+| `kgcm` | `kubectl get configmap` | Listar configmaps |
+| `kgsec` | `kubectl get secret` | Listar secrets |
+| `kgall` | `kubectl get all` | Listar todos los recursos |
+| `kctx` | `kubectl config current-context` | Contexto actual |
 | `kdp` | `kubectl describe pod` | Describir pod |
-| `klog` | `kubectl logs` | Ver logs de pod |
-
-### Navegación y Utilidades
-| Alias | Comando Original | Descripción |
-|-------|------------------|-------------|
-| `ll` | `Get-ChildItem` | Listar archivos detallado |
-| `la` | `Get-ChildItem -Force` | Listar todos los archivos |
-| `..` | `cd ..` | Subir un directorio |
-| `...` | `cd ..\..` | Subir dos directorios |
+| `kl` | `kubectl logs` | Ver logs de pod |
+| `klf` | `kubectl logs -f` | Ver logs en tiempo real |
 
 ## 🔧 Personalización
 
