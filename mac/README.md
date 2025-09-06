@@ -86,7 +86,7 @@ source ~/.zshrc
 | `gpl` | `git pull` | Obtener cambios remotos |
 | `gpu` | `git push` | Enviar cambios al remoto |
 | `gaa` | `git add .` | Agregar todos los archivos |
-| `gcom` | `git commit -m` | Commit con mensaje |
+| `gcom` | `git commit -am` | Commit con mensaje |
 | `gch` | `git checkout` | Cambiar rama o restaurar archivos |
 | `gb` | `git branch` | Listar/gestionar ramas |
 | `gcl` | `git clone` | Clonar repositorio |
